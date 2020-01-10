@@ -1,59 +1,32 @@
-<!--index.wxml-->
-<view class="container">
-
-  <!-- 用户 openid -->
-  <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-      size="default"
-    ></button>
-    <view class="userinfo-nickname-wrapper">
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
-    </view>
+<!--miniprogram/pages/index/index.wxml-->
+<view class="header">
+  <text class="header__title">Today</text>
+  <view class="header__avatar" bind:tap="handleTapAvatar">
+    <open-data type="userAvatarUrl"></open-data>
   </view>
-
-
-  <!-- 上传图片 -->
-  <view class="uploader">
-    <view class="uploader-text" bindtap="doUpload">
-      <text>上传图片</text>
-    </view>
-    <view class="uploader-container" wx:if="{{imgUrl}}">
-      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
-    </view>
-  </view>
-
-
-  <!-- 操作数据库 -->
-  <view class="uploader">
-    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
-      <text>前端操作数据库</text>
-    </navigator>
-  </view>
-
-  <!-- 即时通信 -->
-  <view class="uploader">
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text>即时通信 Demo</text>
-    </navigator>
-  </view>
-
-  <!-- 新建云函数 -->
-  <view class="uploader">
-    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-      <text>快速新建云函数</text>
-    </navigator>
-  </view>
-
-  <!-- 云调用 -->
-  <view class="uploader">
-    <navigator url="../openapi/openapi" open-type="navigate" class="uploader-text">
-      <text>云调用</text>
-    </navigator>
-  </view>
-
-
+</view>
+<swiper
+  class="banner"
+  indicatorDots="true"
+  previous-margin="40rpx"
+  next-margin="40rpx"
+>
+  <block wx:for="{{ banner }}" wx:key="index">
+    <swiper-item>
+      <image src="{{ item.image }}" mode="widthFix"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="film-list">
+  <text class="film-list__title">经典片单</text>
+  <film-list
+    filmListId="1"
+    name="2020年外语电影"
+    total="{{ 50 }}"
+  ></film-list>
+  <film-list
+    filmListId="1"
+    name="2020年最值得期待的50部外语电影2020年最值得期待的50部外语电影"
+    total="{{ 50 }}"
+  ></film-list>
 </view>
