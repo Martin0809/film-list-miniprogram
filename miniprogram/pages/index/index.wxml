@@ -19,14 +19,13 @@
 </swiper>
 <view class="film-list">
   <text class="film-list__title">经典片单</text>
-  <film-list
-    filmListId="1"
-    name="2020年外语电影"
-    total="{{ 50 }}"
-  ></film-list>
-  <film-list
-    filmListId="1"
-    name="2020年最值得期待的50部外语电影2020年最值得期待的50部外语电影"
-    total="{{ 50 }}"
-  ></film-list>
+  <block wx:for="{{ filmList }}" wx:key="index">
+    <film-list
+      filmListId="{{ item._id }}"
+      title="{{ item.title }}"
+      total="{{ item.total }}"
+      cover="{{ item.cover }}"
+      functionName="{{ item.function }}"
+    />
+  </block>
 </view>

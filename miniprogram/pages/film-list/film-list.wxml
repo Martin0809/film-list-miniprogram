@@ -1,2 +1,8 @@
 <!--pages/film-list/film-list.wxml-->
-<text>pages/film-list/film-list.wxml</text>
+<view>
+  <image src="{{ detail.cover }}"></image>
+  <view>
+    <text>{{ detail.title }}</text>
+    <text>{{ detail.total }}</text>
+  </view>
+</view>

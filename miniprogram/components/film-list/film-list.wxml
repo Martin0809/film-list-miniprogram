@@ -1,10 +1,8 @@
 <!--components/film-list/film-list.wxml-->
 <view class="film-list" bind:tap="handleTap">
-  <image
-    src="http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg"
-  ></image>
+  <image src="{{ cover }}"></image>
   <view class="film-list__info">
-    <text>{{ name }}</text>
+    <text>{{ title }}</text>
     <text>{{ total }} 部</text>
   </view>
 </view>

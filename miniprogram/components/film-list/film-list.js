@@ -5,8 +5,10 @@ Component({
    */
   properties: {
     filmListId: String,
-    name: String,
-    total: Number
+    title: String,
+    total: Number,
+    cover: String,
+    functionName: String
   },
 
   /**
@@ -18,9 +20,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleTap: function () {
+    handleTap: function() {
       wx.navigateTo({
-        url: `../../pages/film-list/film-list?id=${this.data.filmListId}`
+        url: `../../pages/film-list/film-list?id=${this.data.filmListId}&functionName=${this.data.functionName}`
       })
     }
   }

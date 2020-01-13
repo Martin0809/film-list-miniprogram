@@ -50,7 +50,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "片单详情",
+					"pathName": "pages/film-list/film-list",
+					"query": "id=c7691ddb-f51d-47af-b282-11ad7a6bfcdf&functionName=getIntheaters",
+					"scene": null
+				}
+			]
 		}
 	}
 }

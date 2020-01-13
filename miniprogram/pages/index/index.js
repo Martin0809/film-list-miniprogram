@@ -20,13 +20,16 @@ Page({
           'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
         link: '../profile/profile'
       }
-    ]
+    ],
+    filmList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    this.fetch()
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -63,7 +66,23 @@ Page({
    */
   onShareAppMessage: function() {},
 
-  handleTapAvatar: () => {
+  fetch: function() {
+    wx.cloud
+      .callFunction({
+        name: 'filmList',
+        data: {
+          $url: 'list'
+        }
+      })
+      .then(({ result }) => {
+        this.setData({
+          filmList: result.data
+        })
+      })
+      .catch(err => console.error(err))
+  },
+
+  handleTapAvatar: function() {
     wx.navigateTo({
       url: '../profile/profile'
     })
