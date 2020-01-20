@@ -1,6 +1,11 @@
 /**app.wxss**/
 page {
-  --border-color: #ccc;
+  --white: #fff;
+  --grey: #84868c;
+  --black-dark: #1e1e24;
+  --black-light: #292b33;
   
-  --border: 1rpx solid var(--border-color);
+  --border: 2rpx solid var(--black-light);
+
+  background: var(--black-dark);
 }

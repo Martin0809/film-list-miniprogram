@@ -3,19 +3,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
-  border-bottom: var(--border);
+  padding: 48rpx 64rpx 0 64rpx;
 }
 
 .header__title {
-  font-size: 40rpx;
+  font-size: 48rpx;
   font-weight: bold;
+  color: var(--white);
 }
 
 .header__avatar {
-  width: 100rpx;
-  height: 100rpx;
+  width: 64rpx;
+  height: 64rpx;
   border-radius: 50%;
+  border: 2rpx solid var(--black-light);
+  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -31,12 +33,5 @@
 }
 
 .film-list {
-  margin-top: 40rpx;
-}
-
-.film-list__title {
-  display: block;
-  padding: 20rpx;
-  font-size: 32rpx;
-  border-bottom: var(--border);
+  margin-top: 80rpx;
 }

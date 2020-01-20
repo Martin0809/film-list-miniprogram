@@ -1,26 +1,12 @@
 // miniprogram/pages/index/index.js
+const { api } = require('../../utils/utils')
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    banner: [
-      {
-        image:
-          'http://p1.music.126.net/oeH9rlBAj3UNkhOmfog8Hw==/109951164169407335.jpg',
-        link: '../profile/profile'
-      },
-      {
-        image:
-          'http://p1.music.126.net/xhWAaHI-SIYP8ZMzL9NOqg==/109951164167032995.jpg',
-        link: '../profile/profile'
-      },
-      {
-        image:
-          'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
-        link: '../profile/profile'
-      }
-    ],
+    banner: [],
     filmList: []
   },
 
@@ -28,7 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.fetch()
+    this.fetchBanner()
+    this.fetchList()
   },
 
   /**
@@ -65,22 +52,23 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {},
+  
+  fetchBanner: async function() {
+    const res = await api('index/banner')
 
-  fetch: function() {
-    wx.cloud
-      .callFunction({
-        name: 'filmList',
-        data: {
-          $url: 'list'
-        }
-      })
-      .then(({ result }) => {
-        this.setData({
-          filmList: result.data
-        })
-      })
-      .catch(err => console.error(err))
+    this.setData({
+      banner: res.data
+    })
   },
+
+  fetchList: async function () {
+    const res = await api('filmList/list')
+
+    this.setData({
+      filmList: res.data
+    })
+  },
+
 
   handleTapAvatar: function() {
     wx.navigateTo({

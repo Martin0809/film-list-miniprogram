@@ -1,1 +1,24 @@
 /* pages/film-list/film-list.wxss */
+.film-list {
+  display: flex;
+  padding: 20rpx;
+}
+
+.film-list image {
+  flex: none;
+  margin-right: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.film-list__info {
+  flex: auto;
+  width: 0;
+}
+
+.film-list__info text {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

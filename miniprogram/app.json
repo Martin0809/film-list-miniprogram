@@ -5,9 +5,9 @@
     "pages/profile/profile"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#1e1e24",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#1e1e24",
     "navigationBarTitleText": "推荐片单",
     "navigationBarTextStyle": "white"
   },

@@ -1,8 +1,0 @@
-<!--components/film-list/film-list.wxml-->
-<view class="film-list" bind:tap="handleTap">
-  <image src="{{ cover }}"></image>
-  <view class="film-list__info">
-    <text>{{ title }}</text>
-    <text>{{ total }} 部</text>
-  </view>
-</view>

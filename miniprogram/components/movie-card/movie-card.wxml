@@ -1,0 +1,7 @@
+<!--components/movie-card/movie-card.wxml-->
+<view>
+  <image src="{{ data.images.small }}"></image>
+  <view>
+    <text>{{ data.title }}</text>
+  </view>
+</view>

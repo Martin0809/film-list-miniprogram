@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "movie-card": "../../components/movie-card/movie-card"
+  }
 }

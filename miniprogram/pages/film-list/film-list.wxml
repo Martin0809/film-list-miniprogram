@@ -1,8 +1,11 @@
 <!--pages/film-list/film-list.wxml-->
-<view>
+<view class="film-list">
   <image src="{{ detail.cover }}"></image>
-  <view>
+  <view class="film-list__info">
     <text>{{ detail.title }}</text>
     <text>{{ detail.total }}</text>
   </view>
 </view>
+<block wx:for="{{ list }}" wx:key="id">
+  <movie-card data="{{ item }}" />
+</block>

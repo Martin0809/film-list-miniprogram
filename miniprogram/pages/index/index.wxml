@@ -1,6 +1,6 @@
 <!--miniprogram/pages/index/index.wxml-->
 <view class="header">
-  <text class="header__title">Today</text>
+  <text class="header__title">近期热门</text>
   <view class="header__avatar" bind:tap="handleTapAvatar">
     <open-data type="userAvatarUrl"></open-data>
   </view>
@@ -13,14 +13,13 @@
 >
   <block wx:for="{{ banner }}" wx:key="index">
     <swiper-item>
-      <image src="{{ item.image }}" mode="widthFix"></image>
+      <image src="{{ item.cover }}" mode="widthFix"></image>
     </swiper-item>
   </block>
 </swiper>
 <view class="film-list">
-  <text class="film-list__title">经典片单</text>
   <block wx:for="{{ filmList }}" wx:key="index">
-    <film-list
+    <film-list-card
       filmListId="{{ item._id }}"
       title="{{ item.title }}"
       total="{{ item.total }}"

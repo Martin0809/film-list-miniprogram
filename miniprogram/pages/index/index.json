@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "film-list": "../../components/film-list/film-list"
+    "film-list-card": "../../components/film-list-card/film-list-card"
   }
 }

@@ -1,26 +1,32 @@
 // pages/film-list/film-list.js
 const { api } = require('../../utils/utils')
 
+let id = ''
+let functionName = ''
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    id: '',
-    functionName: '',
-    detail: {}
+    detail: {},
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function({ id, functionName }) {
-    const { data, result } = await this.fetchDetail(id)
+  onLoad: async function(options) {
+    id = options.id
+    functionName = options.functionName
+
+    const promises = [this.fetchDetail(id), this.fetchList()]
+    const [detail, list] = await Promise.all(promises)
+    console.log(list)
 
     this.setData({
-      id,
-      functionName,
-      detail: data
+      detail: detail.data,
+      list: list.data.subjects
     })
   },
 
@@ -60,11 +66,22 @@ Page({
   onShareAppMessage: function() {},
 
   fetchDetail: function(id) {
-    return api('filmList', {
-      id,
-      $url: 'detail'
+    return api('filmList/detail', {
+      id
     })
   },
 
-  fetchList: function(page = 1, size = 20) {}
+  fetchList: function(page = 1, size = 20) {
+    let url = 'movie'
+
+    if (functionName) {
+      url = functionName
+    }
+
+    return api(`filmList/${url}`, {
+      id,
+      page,
+      size,
+    })
+  }
 })
