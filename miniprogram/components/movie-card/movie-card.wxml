@@ -1,7 +1,10 @@
 <!--components/movie-card/movie-card.wxml-->
-<view>
-  <image src="{{ data.images.small }}"></image>
-  <view>
-    <text>{{ data.title }}</text>
+<view class="movie-list-card">
+  <view class="movie-list-card__content">
+    <image src="{{ data.images.small }}"></image>
+    <view class="movie-list-card__info">
+      <text>{{ data.title }}</text>
+      <text>{{ data.year }} / {{ genres }} / {{ casts }}</text>
+    </view>
   </view>
 </view>

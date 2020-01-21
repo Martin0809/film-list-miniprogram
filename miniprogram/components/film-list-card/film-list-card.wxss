@@ -29,7 +29,6 @@
   width: 0;
   font-size: 32rpx;
   line-height: 1.5;
-  color: var(--white);
 }
 
 .film-list-card__info text {

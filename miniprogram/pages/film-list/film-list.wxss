@@ -1,24 +1,31 @@
 /* pages/film-list/film-list.wxss */
-.film-list {
-  display: flex;
-  padding: 20rpx;
+.film-list__banner {
+  position: relative;
+  height: 360rpx;
 }
 
-.film-list image {
-  flex: none;
-  margin-right: 20rpx;
-  width: 200rpx;
-  height: 200rpx;
+.film-list__banner image {
+  width: 100%;
+  height: 100%;
 }
 
-.film-list__info {
-  flex: auto;
-  width: 0;
+.film-list__shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(30, 30, 36, 0.24) 100%);
 }
 
-.film-list__info text {
-  display: block;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+.film-list__title {
+  position: absolute;
+  bottom: 88rpx;
+  left: 50%;
+  font-size: 48rpx;
+  transform: translateX(-50%);
+}
+
+.film-list__total {
+  margin: 48rpx 64rpx;
 }

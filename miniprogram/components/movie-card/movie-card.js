@@ -10,6 +10,19 @@ Component({
     }
   },
 
+  observers: {
+    'data.genres': function(genres) {
+      this.setData({
+        genres: genres.join(' ')
+      })
+    },
+    'data.casts': function(casts) {
+      this.setData({
+        casts: casts.map(item => item.name).join(' / ')
+      })
+    }
+  },
+
   /**
    * 组件的初始数据
    */

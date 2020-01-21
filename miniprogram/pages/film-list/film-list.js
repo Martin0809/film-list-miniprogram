@@ -21,8 +21,7 @@ Page({
     functionName = options.functionName
 
     const promises = [this.fetchDetail(id), this.fetchList()]
-    const [detail, list] = await Promise.all(promises)
-    console.log(list)
+    const [detail = {}, list = []] = await Promise.all(promises)
 
     this.setData({
       detail: detail.data,

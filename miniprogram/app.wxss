@@ -7,5 +7,6 @@ page {
   
   --border: 2rpx solid var(--black-light);
 
+  color: var(--white);
   background: var(--black-dark);
 }

@@ -9,7 +9,6 @@
 .header__title {
   font-size: 48rpx;
   font-weight: bold;
-  color: var(--white);
 }
 
 .header__avatar {
