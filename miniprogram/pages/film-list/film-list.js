@@ -3,12 +3,14 @@ const { api } = require('../../utils/utils')
 
 let id = ''
 let functionName = ''
+let $nav = null
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    page: 1,
     detail: {},
     list: []
   },
@@ -32,7 +34,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function() {
+    $nav = this.selectComponent('#nav')
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -57,12 +61,28 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {},
+  onReachBottom: async function() {
+    const { page, detail, list } = this.data
+
+    if (list.length < detail.total) {
+      const res = await this.fetchList(page + 1)
+
+      this.setData({
+        page: page + 1,
+        list: list.concat(res.data.subjects)
+      })
+    }
+    
+  },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {},
+
+  onPageScroll: function({ scrollTop }) {
+    $nav.onPageScroll(scrollTop)
+  },
 
   fetchDetail: function(id) {
     return api('filmList/detail', {

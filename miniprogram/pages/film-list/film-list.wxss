@@ -15,15 +15,22 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(30, 30, 36, 0.24) 100%);
+  background: linear-gradient(180deg, rgba(30, 30, 36, 1) 0%, rgba(30, 30, 36, 0.24) 100%);
 }
 
 .film-list__title {
   position: absolute;
   bottom: 88rpx;
-  left: 50%;
+  left: 128rpx;
+  right: 128rpx;
   font-size: 48rpx;
-  transform: translateX(-50%);
+  text-align: center;
+}
+
+.film-list__title text {
+  background: linear-gradient(var(--brown), var(--brown)) no-repeat;
+  background-size: 100% 16rpx;
+  background-position: 0 100%;
 }
 
 .film-list__total {

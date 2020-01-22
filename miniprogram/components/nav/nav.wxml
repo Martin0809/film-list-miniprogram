@@ -1,0 +1,11 @@
+<!--components/nav/nav.wxml-->
+<view class="nav" style="background: {{ backgroundColor }}; color: {{color}}; opacity: {{ opacity }}">
+  <view style="height: {{ statusBarHeight }}rpx"></view>
+  <view class="nav__bar">
+    <text>{{title}}</text>
+  </view>
+</view>
+<view style="height: {{ statusBarHeight }}rpx; background: {{ backgroundColor }}"></view>
+<block wx:if="{{ canBack }}">
+  <i class="nav__back iconfont icon-back" bind:tap="handleBack" />
+</block>

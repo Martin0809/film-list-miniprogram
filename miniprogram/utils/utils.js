@@ -16,3 +16,9 @@ export const api = (url, data) => {
     .then(res => res.result)
     .catch(err => console.error(err))
 }
+
+export const getStatusBarHeight = () => {
+  const { statusBarHeight } = wx.getSystemInfoSync()
+
+  return statusBarHeight * 2
+}

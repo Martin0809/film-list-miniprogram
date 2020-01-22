@@ -10,6 +10,7 @@ cloud.init({
 
 // 云函数入口函数
 exports.main = async ({ url, ...rest }, context) => {
+  console.log(rest)
   const res = await rp({
     uri: `${BASE_URL}${url}?apikey=0df993c66c0c636e29ecbb5344252a4a`,
     json: true,

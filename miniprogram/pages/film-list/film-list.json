@@ -1,8 +1,7 @@
 {
-  "window": {
-    "navigationStyle": "custom"
-  },
+  "navigationStyle": "custom",
   "usingComponents": {
+    "nav": "../../components/nav/nav",
     "movie-card": "../../components/movie-card/movie-card"
   }
 }

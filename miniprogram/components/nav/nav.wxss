@@ -1,0 +1,32 @@
+/* components/nav/nav.wxss */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--black-dark);
+  opacity: 0;
+  z-index: var(--nav-index);
+  transition: opacity 0.3s linear;
+}
+
+.nav__bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88rpx;
+}
+
+.nav__bar text {
+  width: 330rpx;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.nav__back {
+  position: fixed;
+  padding: 24rpx 24rpx 24rpx 20rpx;
+  z-index: calc(var(--nav-index) + 1);
+}

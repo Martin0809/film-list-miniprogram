@@ -1,10 +1,17 @@
 <!--pages/film-list/film-list.wxml-->
+<nav
+  id="nav"
+  title="{{ detail.title }}"
+  top="{{ 208 }}"
+/>
 <view class="film-list__banner">
-  <image src="{{ detail.cover }}"></image>
+  <image src="{{ detail.cover }}" ></image>
   <view class="film-list__shadow"></view>
-  <text class="film-list__title">{{ detail.title }}</text>
+  <view class="film-list__title">
+    <text>{{ detail.title }}</text>
+  </view>
 </view>
-<view class="film-list__total">共 {{ detail.total }} 部</view>
+<view class="film-list__total">共 {{ detail.total || 0 }} 部</view>
 <block wx:for="{{ list }}" wx:key="id">
   <movie-card data="{{ item }}" />
 </block>

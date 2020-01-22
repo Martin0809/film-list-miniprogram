@@ -54,8 +54,10 @@ exports.main = (event, context) => {
         name: 'api',
         data: {
           url: 'movie/in_theaters',
-          start: (event.start - 1) * event.size,
-          count: event.size
+          qs: {
+            start: (event.page - 1) * event.size,
+            count: event.size
+          }
         }
       })
       .then(res => res)
@@ -70,8 +72,10 @@ exports.main = (event, context) => {
         name: 'api',
         data: {
           url: 'movie/coming_soon',
-          start: (event.start - 1) * event.size,
-          count: event.size
+          qs: {
+            start: (event.page - 1) * event.size,
+            count: event.size
+          }
         }
       })
       .then(res => res)
@@ -86,8 +90,10 @@ exports.main = (event, context) => {
         name: 'api',
         data: {
           url: 'movie/top250',
-          start: (event.start - 1) * event.size,
-          count: event.size
+          qs: {
+            start: (event.page - 1) * event.size,
+            count: event.size
+          }
         }
       })
       .then(res => res)
@@ -102,8 +108,10 @@ exports.main = (event, context) => {
         name: 'api',
         data: {
           url: 'movie/weekly',
-          start: (event.start - 1) * event.size,
-          count: event.size
+          qs: {
+            start: (event.page - 1) * event.size,
+            count: event.size
+          }
         }
       })
       .then(res => {
@@ -130,8 +138,10 @@ exports.main = (event, context) => {
         name: 'api',
         data: {
           url: 'movie/us_box',
-          start: (event.start - 1) * event.size,
-          count: event.size
+          qs: {
+            start: (event.page - 1) * event.size,
+            count: event.size
+          }
         }
       })
       .then(res => {
@@ -161,8 +171,10 @@ exports.main = (event, context) => {
         name: 'api',
         data: {
           url: 'movie/new_movies',
-          start: (event.start - 1) * event.size,
-          count: event.size
+          qs: {
+            start: (event.page - 1) * event.size,
+            count: event.size
+          }
         }
       })
       .then(res => res)
