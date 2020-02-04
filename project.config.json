@@ -57,6 +57,13 @@
 					"pathName": "pages/film-list/film-list",
 					"query": "id=c7691ddb-f51d-47af-b282-11ad7a6bfcdf&functionName=getInTheaters",
 					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "电影详情",
+					"pathName": "pages/movie/movie",
+					"query": "id=26871938",
+					"scene": null
 				}
 			]
 		}

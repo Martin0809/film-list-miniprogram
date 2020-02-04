@@ -1,2 +1,3 @@
 <!--miniprogram/pages/profile/profile.wxml-->
-<text>miniprogram/pages/profile/profile.wxml</text>
+<open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data>

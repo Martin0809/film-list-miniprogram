@@ -1,0 +1,35 @@
+<!--miniprogram/pages/movie/movie.wxml-->
+<view>
+  <image src="{{ detail.images.small }}"></image>
+  <text>{{ detail.title }}</text>
+  <text>{{ detail.countries }} / {{ detail.genres }} / {{ detail.mainland_pubdate }} / {{ detail.rating ? detail.rating.average : 0 }}</text>
+</view>
+<button>想看</button>
+<view>
+  <text>剧情介绍</text>
+  <navigator>more</navigator>
+  <text>{{ detail.summary }}</text>
+</view>
+<view>
+  <text>演职表</text>
+  <navigator>more</navigator>
+  <scroll-view scroll-x="true" style="white-space: nowrap">
+    <block wx:for="{{ detail.casts }}">
+      <view style="display: inline-block">
+        <image src="{{ item.avatars.small }}"></image>
+        <text>{{ item.name }}</text>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<view>
+  <text>剧照</text>
+  <navigator>more</navigator>
+  <scroll-view scroll-x="true" style="white-space: nowrap">
+    <block wx:for="{{ detail.photos }}">
+      <view style="display: inline-block">
+        <image src="{{ item.thumb }}"></image>
+      </view>
+    </block>
+  </scroll-view>
+</view>

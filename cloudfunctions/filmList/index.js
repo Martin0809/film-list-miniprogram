@@ -6,10 +6,6 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
 })
 
-const db = cloud.database()
-const filmList = db.collection('filmList')
-const filmListDetail = db.collection('filmListDetail')
-
 // 云函数入口函数
 exports.main = (event, context) => {
   const app = new TcbRouter({ event })
@@ -21,13 +17,13 @@ exports.main = (event, context) => {
   })
 
   app.router('list', async ctx => {
-    const res = await filmList.orderBy('order', 'asc').get()
+    const res = await cloud.database().collection('filmList').orderBy('order', 'asc').get()
 
     ctx.body.data = res.data
   })
 
   app.router('detail', async ctx => {
-    const res = await filmList
+    const res = await cloud.database().collection('filmList')
       .where({
         _id: event.id
       })
@@ -41,7 +37,7 @@ exports.main = (event, context) => {
   })
 
   app.router('movies', async ctx => {
-    const res = await filmListDetail
+    const res = await cloud.database().collection('filmListDetail')
       .where({
         _id: event.filmListId
       })

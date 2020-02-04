@@ -3,6 +3,7 @@ const { api } = require('../../utils/utils')
 
 let id = ''
 let functionName = ''
+let page = 1
 let $nav = null
 
 Page({
@@ -10,7 +11,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page: 1,
     detail: {},
     list: []
   },
@@ -23,7 +23,7 @@ Page({
     functionName = options.functionName
 
     const promises = [this.fetchDetail(id), this.fetchList()]
-    const [detail = {}, list = []] = await Promise.all(promises)
+    const [detail = {}, list = {}] = await Promise.all(promises)
 
     this.setData({
       detail: detail.data,
@@ -62,13 +62,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: async function() {
-    const { page, detail, list } = this.data
+    const { detail, list } = this.data
 
     if (list.length < detail.total) {
       const res = await this.fetchList(page + 1)
 
+      page += 1
       this.setData({
-        page: page + 1,
         list: list.concat(res.data.subjects)
       })
     }

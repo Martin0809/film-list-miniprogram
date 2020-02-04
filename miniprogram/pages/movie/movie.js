@@ -1,21 +1,28 @@
-// miniprogram/pages/index/index.js
+// miniprogram/pages/movie/movie.js
 const { api } = require('../../utils/utils')
+
+let id = ''
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    banner: [],
-    filmList: []
+    detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    this.fetchBanner()
-    this.fetchList()
+  onLoad: async function(options) {
+    id = options.id
+
+    const detail = await this.fetch()
+    console.log(detail)
+
+    this.setData({
+      detail: detail.data
+    })
   },
 
   /**
@@ -53,25 +60,7 @@ Page({
    */
   onShareAppMessage: function() {},
 
-  fetchBanner: async function() {
-    const res = await api('index/banner')
-
-    this.setData({
-      banner: res.data
-    })
-  },
-
-  fetchList: async function () {
-    const res = await api('filmList/list')
-
-    this.setData({
-      filmList: res.data
-    })
-  },
-
-  handleTapAvatar: function() {
-    wx.navigateTo({
-      url: '../profile/profile'
-    })
+  fetch: function() {
+    return api('movie/detail', { id })
   }
 })

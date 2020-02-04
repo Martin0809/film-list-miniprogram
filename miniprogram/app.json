@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/profile/profile",
     "pages/film-list/film-list",
-    "pages/profile/profile"
+    "pages/movie/movie"
   ],
   "window": {
     "backgroundColor": "#1e1e24",

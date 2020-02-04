@@ -16,5 +16,7 @@ App({
     }
 
     this.globalData = {}
+
+    wx.hideHomeButton()
   }
 })

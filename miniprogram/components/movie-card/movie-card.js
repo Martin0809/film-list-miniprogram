@@ -31,5 +31,11 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {}
+  methods: {
+    handleTap: function() {
+      wx.navigateTo({
+        url: `../../pages/movie/movie?id=${this.data.data.id}`
+      })
+    }
+  }
 })
