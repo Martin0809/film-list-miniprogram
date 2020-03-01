@@ -5,15 +5,12 @@
     <open-data type="userAvatarUrl"></open-data>
   </view>
 </view>
-<swiper
-  class="banner"
-  indicatorDots="true"
-  previous-margin="40rpx"
-  next-margin="40rpx"
->
+<swiper class="banner">
   <block wx:for="{{ banner }}" wx:key="index">
     <swiper-item>
-      <image src="{{ item.cover }}" mode="widthFix"></image>
+      <navigator hover-class="no" url="{{ item.link }}">
+        <image src="{{ item.cover }}" mode="widthFix"></image>
+      </navigator>
     </swiper-item>
   </block>
 </swiper>

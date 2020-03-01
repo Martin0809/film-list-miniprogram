@@ -1,35 +1,69 @@
 <!--miniprogram/pages/movie/movie.wxml-->
-<view>
-  <image src="{{ detail.images.small }}"></image>
-  <text>{{ detail.title }}</text>
-  <text>{{ detail.countries }} / {{ detail.genres }} / {{ detail.mainland_pubdate }} / {{ detail.rating ? detail.rating.average : 0 }}</text>
+<nav
+  id="nav"
+  title="{{ detail.title }}"
+  absoluteStatusBar="{{ true }}"
+  top="{{ 568 }}"
+/>
+<view class="movie__banner" style="background-image: url({{ detail.images.large }});">
+  <view class="movie__banner-shadow"></view>
+  <view class="movie__banner-circle"></view>
 </view>
-<button>想看</button>
-<view>
-  <text>剧情介绍</text>
-  <navigator>more</navigator>
-  <text>{{ detail.summary }}</text>
+<view class="movie__info">
+  <text class="movie__title">{{ detail.title }}</text>
+  <text class="movie__rate">豆瓣评分<text>TM</text></text>
+  <view class="movie__ratings"></view>
+  <view class="movie__group">
+    <view class="movie__group-item">
+      <text>年份</text>
+      <view>{{ detail.year }}</view>
+    </view>
+    <view class="movie__group-item">
+      <text>国别</text>
+      <view>{{ detail.countries }}</view>
+    </view>
+    <view class="movie__group-item">
+      <text>类型</text>
+      <view>{{ detail.genres }}</view>
+    </view>
+    <view class="movie__group-item">
+      <text>时长</text>
+      <view>{{ detail.durations[0] }}</view>
+    </view>
+  </view>
+  <view class="movie__desc">
+    <text class="{{ descHidden ? 'movie__desc--hidden' : '' }}" bind:tap="handleDescTap">{{ detail.summary }}</text>
+  </view>
 </view>
-<view>
-  <text>演职表</text>
-  <navigator>more</navigator>
-  <scroll-view scroll-x="true" style="white-space: nowrap">
-    <block wx:for="{{ detail.casts }}">
-      <view style="display: inline-block">
-        <image src="{{ item.avatars.small }}"></image>
-        <text>{{ item.name }}</text>
-      </view>
-    </block>
+<view class="movie__section">
+  <view class="movie__section-name">演职表</view>
+  <scroll-view class="movie__scroll" scroll-x="true">
+    <view class="movie__casts">
+      <block wx:for="{{ detail.directors }}" wx:key="id">
+        <view class="movie__cast" data-cast-id="{{ item.id }}" bind:tap="handleCastTap">
+          <image src="{{ item.avatars.small }}"></image>
+          <text>{{ item.name }}</text>
+          <text>导演</text>
+        </view>
+      </block>
+      <block wx:for="{{ detail.casts }}" wx:key="id">
+        <view class="movie__cast" data-cast-id="{{ item.id }}" bind:tap="handleCastTap">
+          <image src="{{ item.avatars.small }}"></image>
+          <text>{{ item.name }}</text>
+        </view>
+      </block>
+    </view>
   </scroll-view>
 </view>
-<view>
-  <text>剧照</text>
-  <navigator>more</navigator>
-  <scroll-view scroll-x="true" style="white-space: nowrap">
-    <block wx:for="{{ detail.photos }}">
-      <view style="display: inline-block">
-        <image src="{{ item.thumb }}"></image>
-      </view>
-    </block>
+<view class="movie__section">
+  <view class="movie__section-name">剧照</view>
+  <scroll-view class="movie__scroll" scroll-x="true">
+    <view class="movie__photos">
+      <block wx:for="{{ detail.photos }}" wx:key="index">
+        <view style="background-image: url({{ item.thumb }})"></view>
+      </block>
+    </view>
   </scroll-view>
 </view>
+<view class="movie__placeholder"></view>
+<view class="movie__want">想看</view>

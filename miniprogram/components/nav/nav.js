@@ -13,6 +13,7 @@ Component({
     title: String,
     backgroundColor: String,
     color: String,
+    absoluteStatusBar: Boolean,
     top: Number
   },
 

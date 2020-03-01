@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 48rpx 64rpx 0 64rpx;
+  padding: 48rpx 64rpx 10rpx 64rpx;
 }
 
 .header__title {
@@ -21,7 +21,7 @@
 }
 
 .banner {
-  margin-top: 40rpx;
+  height: 570rpx;
 }
 
 .banner image {
@@ -32,5 +32,5 @@
 }
 
 .film-list {
-  margin-top: 80rpx;
+  margin-top: -108rpx;
 }

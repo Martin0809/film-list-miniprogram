@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "电影详情",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav": "../../components/nav/nav"
+  }
 }

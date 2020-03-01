@@ -5,18 +5,16 @@
 
 .film-list-card__content {
   display: flex;
-  margin: 80rpx 64rpx 48rpx;
-  padding: 32rpx;
+  margin: 48rpx 64rpx 0;
   background: var(--black-light);
   box-shadow: 0 8rpx 40rpx 0 rgba(0, 0, 0, 0.08);
-  border-radius: 16rpx;
+  border-radius: 8rpx;
 }
 
 .film-list-card image {
   flex: none;
-  margin-top: -112rpx; 
-  width: 180rpx;
-  height: 240rpx;
+  width: 160rpx;
+  height: 224rpx;
   border-radius: 8rpx;
 }
 
@@ -25,7 +23,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex: auto;
-  margin-left: 32rpx;
+  padding: 32rpx;
   width: 0;
   font-size: 32rpx;
   line-height: 1.5;

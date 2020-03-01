@@ -2,12 +2,14 @@
 const { api } = require('../../utils/utils')
 
 let id = ''
+let $nav = null
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    descHidden: true,
     detail: {}
   },
 
@@ -18,7 +20,6 @@ Page({
     id = options.id
 
     const detail = await this.fetch()
-    console.log(detail)
 
     this.setData({
       detail: detail.data
@@ -28,7 +29,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function() {
+    $nav = this.selectComponent('#nav')
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -60,7 +63,25 @@ Page({
    */
   onShareAppMessage: function() {},
 
+  onPageScroll: function({ scrollTop }) {
+    $nav.onPageScroll(scrollTop)
+  },
+
   fetch: function() {
     return api('movie/detail', { id })
+  },
+
+  handleCastTap: function(e) {
+    const id = e.currentTarget.dataset.castId
+
+    wx.navigateTo({
+      url: `../../pages/cast/cast?id=${id}`
+    })
+  },
+
+  handleDescTap: function() {
+    this.setData({
+      descHidden: !this.data.descHidden
+    })
   }
 })

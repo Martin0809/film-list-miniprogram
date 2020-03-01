@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/profile/profile",
     "pages/film-list/film-list",
-    "pages/movie/movie"
+    "pages/movie/movie",
+    "pages/cast/cast"
   ],
   "window": {
     "backgroundColor": "#1e1e24",

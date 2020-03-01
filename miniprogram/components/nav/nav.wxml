@@ -5,7 +5,9 @@
     <text>{{title}}</text>
   </view>
 </view>
-<view style="height: {{ statusBarHeight }}rpx; background: {{ backgroundColor }}"></view>
+<block wx:if="{{ !absoluteStatusBar }}">
+  <view style="height: {{ statusBarHeight }}rpx; background: {{ backgroundColor }}"></view>
+</block>
 <block wx:if="{{ canBack }}">
   <i class="nav__back iconfont icon-back" bind:tap="handleBack" />
 </block>
