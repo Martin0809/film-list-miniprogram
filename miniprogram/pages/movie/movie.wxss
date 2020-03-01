@@ -89,38 +89,6 @@
   overflow: hidden;
 }
 
-.movie__desc {
-  margin-top: 80rpx;
-  padding: 0 64rpx 42rpx;
-  text-align: left;
-  font-size: 24rpx;
-  line-height: 40rpx;
-  color: var(--grey);
-}
-
-.movie__desc--hidden {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.movie__section {
-  margin-top: 80rpx;
-}
-
-.movie__section-name {
-  margin-bottom: 32rpx;
-  padding: 0 64rpx;
-  font-size: 36rpx;
-  font-weight: bold;
-  line-height: 50rpx;
-}
-
-.movie__scroll {
-  white-space: nowrap;
-}
-
 .movie__casts,
 .movie__photos {
   display: inline-block;

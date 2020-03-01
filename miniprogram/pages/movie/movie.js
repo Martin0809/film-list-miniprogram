@@ -77,11 +77,5 @@ Page({
     wx.navigateTo({
       url: `../../pages/cast/cast?id=${id}`
     })
-  },
-
-  handleDescTap: function() {
-    this.setData({
-      descHidden: !this.data.descHidden
-    })
   }
 })

@@ -1,0 +1,15 @@
+/* components/desc/desc.wxss */
+.desc {
+  padding: 0 64rpx;
+  text-align: left;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: var(--grey);
+}
+
+.desc--hidden {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

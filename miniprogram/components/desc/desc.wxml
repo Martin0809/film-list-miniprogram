@@ -1,0 +1,6 @@
+<!--components/desc/desc.wxml-->
+<view class="desc" style="margin-top: {{ top }}rpx">
+  <text class="{{ hidden ? 'desc--hidden' : '' }}" bind:tap="handleTap">{{
+    desc
+  }}</text>
+</view>

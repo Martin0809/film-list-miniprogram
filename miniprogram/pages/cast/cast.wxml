@@ -1,2 +1,39 @@
 <!--pages/cast/cast.wxml-->
-<text>pages/cast/cast.wxml</text>
+<nav
+  id="nav"
+  title="{{ detail.name }}"
+  absoluteStatusBar="{{ true }}"
+  top="{{ 712 }}"
+/>
+<view class="cast__banner" style="background-image: url({{ detail.photos[0].image }})">
+  <view class="cast__banner-shadow"></view>
+</view>
+<view class="cast__info">
+  <text>{{ detail.name }}</text>
+  <text>{{ detail.name_en }}</text>
+  <desc top="{{ 32 }}" content="{{ detail.summary }}" />
+</view>
+<view class="section">
+  <view class="section-name">作品</view>
+  <scroll-view class="scroll" scroll-x="true">
+    <view class="cast__movies">
+      <block wx:for="{{ detail.works }}" wx:key="index">
+        <view class="cast__movie" data-movie-id="{{ item.subject.id }}" bind:tap="handleMovieTap">
+          <image src="{{ item.subject.images.small }}"></image>
+          <text>{{ item.subject.title }}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class="section">
+  <view class="section-name">相册</view>
+  <scroll-view class="scroll" scroll-x="true">
+    <view class="cast__photos">
+      <block wx:for="{{ detail.photos }}" wx:key="index">
+        <view style="background-image: url({{ item.thumb }})"></view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class="cast__placeholder"></view>

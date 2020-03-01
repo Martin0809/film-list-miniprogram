@@ -64,6 +64,13 @@
 					"pathName": "pages/movie/movie",
 					"query": "id=26885074",
 					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "影人详情",
+					"pathName": "pages/cast/cast",
+					"query": "id=1054453",
+					"scene": null
 				}
 			]
 		}

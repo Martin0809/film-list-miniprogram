@@ -5,7 +5,7 @@
   absoluteStatusBar="{{ true }}"
   top="{{ 568 }}"
 />
-<view class="movie__banner" style="background-image: url({{ detail.images.large }});">
+<view class="movie__banner" style="background-image: url({{ detail.images.large }})">
   <view class="movie__banner-shadow"></view>
   <view class="movie__banner-circle"></view>
 </view>
@@ -31,13 +31,11 @@
       <view>{{ detail.durations[0] }}</view>
     </view>
   </view>
-  <view class="movie__desc">
-    <text class="{{ descHidden ? 'movie__desc--hidden' : '' }}" bind:tap="handleDescTap">{{ detail.summary }}</text>
-  </view>
+  <desc top="{{ 80 }}" content="{{ detail.summary }}" />
 </view>
-<view class="movie__section">
-  <view class="movie__section-name">演职表</view>
-  <scroll-view class="movie__scroll" scroll-x="true">
+<view class="section">
+  <view class="section-name">演职表</view>
+  <scroll-view class="scroll" scroll-x="true">
     <view class="movie__casts">
       <block wx:for="{{ detail.directors }}" wx:key="id">
         <view class="movie__cast" data-cast-id="{{ item.id }}" bind:tap="handleCastTap">
@@ -55,9 +53,9 @@
     </view>
   </scroll-view>
 </view>
-<view class="movie__section">
-  <view class="movie__section-name">剧照</view>
-  <scroll-view class="movie__scroll" scroll-x="true">
+<view class="section">
+  <view class="section-name">剧照</view>
+  <scroll-view class="scroll" scroll-x="true">
     <view class="movie__photos">
       <block wx:for="{{ detail.photos }}" wx:key="index">
         <view style="background-image: url({{ item.thumb }})"></view>
