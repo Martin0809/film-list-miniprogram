@@ -1,9 +1,9 @@
 /* components/movie-card/movie-card.wxss */
-.movie-list-card {
+.movie-card {
   overflow: hidden;
 }
 
-.movie-list-card__content {
+.movie-card__content {
   display: flex;
   margin: 56rpx 48rpx 48rpx;
   padding: 32rpx;
@@ -12,7 +12,7 @@
   border-radius: 16rpx;
 }
 
-.movie-list-card image {
+.movie-card__content > image {
   flex: none;
   margin-top: -88rpx;
   width: 160rpx;
@@ -20,7 +20,7 @@
   border-radius: 6rpx;
 }
 
-.movie-list-card__info {
+.movie-card__info {
   flex: auto;
   margin-left: 32rpx;
   width: 0;
@@ -28,15 +28,33 @@
   line-height: 1.5;
 }
 
-.movie-list-card__info text:first-child {
-  display: inline-block;
-  width: 100%;
+.movie-card__info view {
+  display: flex;
+}
+
+.movie-card__info view text {
+  flex: 1;
+  margin-right: 16rpx;
+  /* width: 100%; */
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.movie-list-card__info text:last-child {
+.movie-card__info view button {
+  padding: 0;
+  width: 48rpx;
+  height: 48rpx;
+  min-height: 48rpx;
+  background: transparent;
+}
+
+.movie-card__info view image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.movie-card__info > text {
   display: -webkit-box;
   margin-top: 16rpx;
   font-size: 24rpx;

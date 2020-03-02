@@ -9,6 +9,15 @@ cloud.init({
 // 云函数入口函数
 exports.main = (event, context) => {
   const app = new TcbRouter({ event })
+  const openId = cloud.getWXContext().OPENID
+
+  function getWanted() {
+    return cloud
+      .database()
+      .collection('wanted')
+      .where({ openId })
+      .get()
+  }
 
   app.use(async (ctx, next) => {
     ctx.body = { result: true }
@@ -17,13 +26,19 @@ exports.main = (event, context) => {
   })
 
   app.router('list', async ctx => {
-    const res = await cloud.database().collection('filmList').orderBy('order', 'asc').get()
+    const res = await cloud
+      .database()
+      .collection('filmList')
+      .orderBy('order', 'asc')
+      .get()
 
     ctx.body.data = res.data
   })
 
   app.router('detail', async ctx => {
-    const res = await cloud.database().collection('filmList')
+    const res = await cloud
+      .database()
+      .collection('filmList')
       .where({
         _id: event.id
       })
@@ -37,7 +52,9 @@ exports.main = (event, context) => {
   })
 
   app.router('movies', async ctx => {
-    const res = await cloud.database().collection('filmListDetail')
+    const res = await cloud
+      .database()
+      .collection('filmListDetail')
       .where({
         _id: event.filmListId
       })
@@ -58,6 +75,18 @@ exports.main = (event, context) => {
       })
       .then(res => res)
       .catch(err => console.error(err))
+
+    const { data: wanted } = await getWanted()
+    const subjects = res.result.subjects
+
+    wanted.forEach(item => {
+      for (let i = 0; i < subjects.length; i++) {
+        if (item.movie.id === subjects[i].id) {
+          subjects[i].wanted = true
+          break
+        }
+      }
+    })
 
     ctx.body.data = res.result
   })

@@ -64,4 +64,4 @@
   </scroll-view>
 </view>
 <view class="movie__placeholder"></view>
-<view class="movie__want">想看</view>
+<view class="movie__want" bind:tap="triggerWant">{{ wanted ? '已想看' : '想看' }}</view>

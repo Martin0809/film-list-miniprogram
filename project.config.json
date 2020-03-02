@@ -71,6 +71,13 @@
 					"pathName": "pages/cast/cast",
 					"query": "id=1054453",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

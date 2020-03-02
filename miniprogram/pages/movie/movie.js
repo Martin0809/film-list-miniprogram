@@ -10,7 +10,8 @@ Page({
    */
   data: {
     descHidden: true,
-    detail: {}
+    detail: {},
+    wanted: false
   },
 
   /**
@@ -22,7 +23,8 @@ Page({
     const detail = await this.fetch()
 
     this.setData({
-      detail: detail.data
+      detail: detail.data,
+      wanted: !!detail.data.wanted
     })
   },
 
@@ -77,5 +79,31 @@ Page({
     wx.navigateTo({
       url: `../../pages/cast/cast?id=${id}`
     })
+  },
+
+  triggerWant: function() {
+    let promise = null
+
+    wx.showLoading({ title: '', mask: true })
+
+    if (this.data.wanted) {
+      console.log('remove')
+      promise = api('wanted/remove', { movieId: id })
+    } else {
+      console.log('add')
+      promise = api('wanted/add', { movieId: id })
+    }
+
+    promise
+      .then(res => {
+        wx.hideLoading()
+
+        if (res.result) {
+          this.setData({
+            wanted: !this.data.wanted
+          })
+        }
+      })
+      .catch(() => wx.hideLoading())
   }
 })

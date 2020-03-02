@@ -72,7 +72,6 @@ Page({
         list: list.concat(res.data.subjects)
       })
     }
-    
   },
 
   /**
@@ -100,7 +99,41 @@ Page({
     return api(`filmList/${url}`, {
       id,
       page,
-      size,
+      size
     })
+  },
+
+  addWanted: function(e) {
+    const id = e.detail.id
+    const { list } = this.data
+
+    for (let i = 0; i < list.length; i++) {
+      const temp = list[i]
+
+      if (id === temp.id) {
+        temp.wanted = true
+
+        break
+      }
+    }
+
+    this.setData({ list })
+  },
+
+  removeWanted: function(e) {
+    const id = e.detail.id
+    const { list } = this.data
+
+    for (let i = 0; i < list.length; i++) {
+      const temp = list[i]
+
+      if (id === temp.id) {
+        temp.wanted = false
+
+        break
+      }
+    }
+
+    this.setData({ list })
   }
 })

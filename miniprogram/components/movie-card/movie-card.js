@@ -1,4 +1,6 @@
 // components/movie-card/movie-card.js
+const { api } = require('../../utils/utils')
+
 Component({
   /**
    * 组件的属性列表
@@ -36,6 +38,36 @@ Component({
       wx.navigateTo({
         url: `../../pages/movie/movie?id=${this.data.data.id}`
       })
+    },
+
+    handleAddWanted: function() {
+      wx.showLoading({ title: '', mask: true })
+      api('wanted/add', {
+        movieId: this.data.data.id
+      })
+        .then(res => {
+          wx.hideLoading()
+
+          if (res.result) {
+            this.triggerEvent('add', { id: this.data.data.id })
+          }
+        })
+        .catch(() => wx.hideLoading())
+    },
+
+    handleRemoveWanted: function() {
+      wx.showLoading({ title: '', mask: true })
+      api('wanted/remove', {
+        movieId: this.data.data.id
+      })
+        .then(res => {
+          wx.hideLoading()
+
+          if (res.result) {
+            this.triggerEvent('remove', { id: this.data.data.id })
+          }
+        })
+        .catch(() => wx.hideLoading())
     }
   }
 })

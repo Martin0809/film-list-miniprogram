@@ -13,5 +13,5 @@
 </view>
 <view class="film-list__total">共 {{ detail.total || 0 }} 部</view>
 <block wx:for="{{ list }}" wx:key="id">
-  <movie-card data="{{ item }}" />
+  <movie-card data="{{ item }}" bind:add="addWanted" bind:remove="removeWanted" />
 </block>

@@ -1,1 +1,27 @@
 /* miniprogram/pages/profile/profile.wxss */
+.profile__avatar {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 80rpx auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile__name {
+  display: block;
+  margin: 80rpx 64rpx 0;
+  font-size: 48rpx;
+  font-weight: bold;
+  line-height: 64rpx;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__total {
+  margin: 224rpx 64rpx 32rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+}

@@ -1,9 +1,26 @@
 <!--components/movie-card/movie-card.wxml-->
-<view class="movie-list-card">
-  <view class="movie-list-card__content" bind:tap="handleTap">
+<view class="movie-card">
+  <view class="movie-card__content" bind:tap="handleTap">
     <image src="{{ data.images.small }}"></image>
-    <view class="movie-list-card__info">
-      <text>{{ data.title }}</text>
+    <view class="movie-card__info">
+      <view>
+        <text>{{ data.title }}</text>
+        <block wx:if="{{ data.wanted }}">
+          <image
+            src="{{ '../../statics/images/wanted.svg' }}"
+            catch:tap="handleRemoveWanted"
+          ></image>
+        </block>
+        <block wx:else>
+          <button
+            open-type="getUserInfo"
+            bindgetuserinfo="handleAddWanted"
+            catch:tap
+          >
+            <image src="{{ '../../statics/images/want.svg' }}"></image>
+          </button>
+        </block>
+      </view>
       <text>{{ data.year }} / {{ genres }} / {{ casts }}</text>
     </view>
   </view>
